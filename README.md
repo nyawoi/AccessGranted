@@ -7,7 +7,7 @@ AccessGranted is a server-side mod for [Zumbi Blocks 2](https://store.steampower
 
 ## Features
 
-- Adds all spawnable items into the Tier 2 loot table (must kill both bosses)
+- Adds all spawnable items into the Tier 2 loot table (must kill Zumbi Queen to unlock)
 - Multiplayer-friendly: only the lobby host needs the mod
 - Doubles the spawn chance of equipment
 - Fully compatible with modded items
