@@ -18,35 +18,35 @@ public static class LootCategoriesPatch
     [HarmonyPatch(nameof(LootCategories.SecondaryGuns), MethodType.Getter)]
     public static void AddAllSecondaryGuns(LootCategory __result)
     {
-        AddAllItemsOfType<DatabaseSecondaryGun>(__result);
+        AddAllItemsOfType<DatabaseSecondaryGun>(__result, chance: 2.0);
     }
     
     [HarmonyPostfix]
     [HarmonyPatch(nameof(LootCategories.Melee), MethodType.Getter)]
     public static void AddAllMelee(LootCategory __result)
     {
-        AddAllItemsOfType<DatabaseMelee>(__result);
+        AddAllItemsOfType<DatabaseMelee>(__result, chance: 2.0);
     }
     
     [HarmonyPostfix]
     [HarmonyPatch(nameof(LootCategories.Food), MethodType.Getter)]
     public static void AddAllFood(LootCategory __result)
     {
-        AddAllItemsOfType<DatabaseConsumable>(__result, filter: consumable => !consumable.ishealing);
+        AddAllItemsOfType<DatabaseConsumable>(__result, chance: 2.0, filter: consumable => !consumable.ishealing);
     }
     
     [HarmonyPostfix]
     [HarmonyPatch(nameof(LootCategories.Medicine), MethodType.Getter)]
     public static void AddAllMedicine(LootCategory __result)
     {
-        AddAllItemsOfType<DatabaseConsumable>(__result, filter: consumable => consumable.ishealing);
+        AddAllItemsOfType<DatabaseConsumable>(__result, chance: 2.0, filter: consumable => consumable.ishealing);
     }
     
     [HarmonyPostfix]
     [HarmonyPatch(nameof(LootCategories.Throwables), MethodType.Getter)]
     public static void AddAllThrowables(LootCategory __result)
     {
-        AddAllItemsOfType<DatabaseThrowable>(__result);
+        AddAllItemsOfType<DatabaseThrowable>(__result, chance: 2.0);
     }
 
     private static void AddAllItemsOfType<T>(LootCategory lootCategory, double chance = 1.0, Func<T, bool> filter = null) where T : DatabaseItem
